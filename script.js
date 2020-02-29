@@ -11,7 +11,7 @@
 // Hint: keeping track of the size in percentage might be easier.
 // Hint: Make sure you quote the emoji characters. They are strings, after all.
 // Hint: document.getElementById("balloon") will get the balloon element on the page.
-"use strict";
+
 let balloon = document.getElementById("balloon");
 let currentSize = 100;
 
@@ -43,3 +43,36 @@ window.addEventListener("keydown", balloonHandler);
 // function as expected. There are many ways to accomplish this task, but you will need
 // to at minimum add listeners to each link and toggle the display of the tab contents.
 // Hint: display: none; hides an element, and display: block; will bring it
+
+let tab1 = document.getElementById("tab1");
+let tab2 = document.getElementById("tab2");
+let tab3 = document.getElementById("tab3");
+
+function setUpDefaultState() {
+  tab2.style.display = "none";
+  tab3.style.display = "none";
+}
+setUpDefaultState();
+
+let tab1Link = document.getElementById("tab1Link");
+let tab2Link = document.getElementById("tab2Link");
+let tab3Link = document.getElementById("tab3Link");
+
+tab1Link.addEventListener("click", event => {
+  tab1.style.display = "block";
+  tab2.style.display = "none";
+  tab3.style.display = "none";
+  event.preventDefault();
+});
+tab2Link.addEventListener("click", event => {
+  tab2.style.display = "block";
+  tab1.style.display = "none";
+  tab3.style.display = "none";
+  event.preventDefault();
+});
+tab3Link.addEventListener("click", event => {
+  tab3.style.display = "block";
+  tab2.style.display = "none";
+  tab1.style.display = "none";
+  event.preventDefault();
+});
